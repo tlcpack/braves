@@ -11,6 +11,7 @@ django = "*"
 django-heroku = "*"
 sportsreference = "*"
 plotly = "*"
+django-chartjs = "*"
 
 [requires]
 python_version = "3.7"
