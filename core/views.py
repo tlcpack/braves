@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.views import generic
+from django.views.generic import TemplateView
 
 from .models import Question
 
@@ -36,3 +37,6 @@ def vote(request, q_id):
         selected_choice.votes += 1
         selected_choice.save()
     return HttpResponseRedirect(reverse('core:results', args=(question.id,)))
+
+class StatsPageView(TemplateView):
+    template_name = 'stats.html'
