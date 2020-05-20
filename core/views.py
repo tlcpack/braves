@@ -38,5 +38,8 @@ def vote(request, q_id):
         selected_choice.save()
     return HttpResponseRedirect(reverse('core:results', args=(question.id,)))
 
-class StatsPageView(TemplateView):
-    template_name = 'stats.html'
+# class StatsPageView(TemplateView):
+#     template_name = 'stats.html'
+
+def stats(request):
+    return render(request, 'stats.html')
