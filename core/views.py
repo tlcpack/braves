@@ -3,6 +3,9 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.views import generic
 from django.views.generic import TemplateView
+from sportsreference.mlb.roster import Roster, Player
+from sportsreference.mlb.boxscore import Boxscore
+from sportsreference.mlb.schedule import Schedule
 
 from .models import Question
 
@@ -42,4 +45,15 @@ def vote(request, q_id):
 #     template_name = 'stats.html'
 
 def stats(request):
-    return render(request, 'stats.html')
+    all_scored = []
+    all_allowed = []
+    game_numbers = []
+    atl_schedule = Schedule('ATL', '1995')
+    runs = [game.runs_scored for game in atl_schedule]
+    braves = Roster('ATL', '1995')
+    pitchers = [player for player in braves.players if player.position == 'P']
+
+    context = {
+        'pitchers': pitchers,
+    }
+    return render(request, 'stats.html', context=context)

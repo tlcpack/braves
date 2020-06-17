@@ -1,4 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <p>This is where some stats would go</p>
+{% for pitcher in pitchers %}
+{{ pitcher.name }}
+{% endfor %}
 {% endblock content %}
