@@ -7,7 +7,7 @@ from sportsreference.mlb.roster import Roster, Player
 from sportsreference.mlb.boxscore import Boxscore
 from sportsreference.mlb.schedule import Schedule
 
-from .models import Question
+from .models import Question, Player
 
 # Create your views here.
 class IndexView(generic.ListView):
