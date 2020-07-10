@@ -26,6 +26,10 @@ class ResultsView(generic.DetailView):
     model = Question
     template_name = "core/results.html"
 
+class PlayerView(generic.ListView):
+    model = Player
+    template_name = "core/players.html"
+
 
 def vote(request, q_id):
     question = get_object_or_404(Question, pk=q_id)
