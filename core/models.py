@@ -22,4 +22,10 @@ class Choice(models.Model):
     def __str__(self):
         return self.choice_text
     
+class Player(models.Model):
+    name = models.CharField(max_length=300)
+
+    def __str__(self):
+        return self.name
+    
 
