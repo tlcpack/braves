@@ -3,6 +3,7 @@
 
 {% block content %}
 <a href="{% url 'core:stats' %}">Stats page</a>
+<a href="{% url 'core:players' %}">Players page</a>
 {% if latest_question_list %}
 <ul>
 {% for question in latest_question_list %}
