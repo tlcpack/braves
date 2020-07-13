@@ -1,6 +1,7 @@
 import datetime
 
 from django.db import models
+from django.urls import reverse
 from django.utils import timezone
 
 # Create your models here.
@@ -24,8 +25,13 @@ class Choice(models.Model):
     
 class Player(models.Model):
     name = models.CharField(max_length=300)
+    position = models.CharField(blank=True, max_length=5)
+    games = models.CharField(blank=True, max_length=5)
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('player_detail', args=[str(self.id)])
     
 
