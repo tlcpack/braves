@@ -4,7 +4,7 @@
 <ul>
 {% for player in player_list %}
 <li>
-    <a href="{{ player.get_absolute_url }}">{{ player.name }}</li>
+    <a href="{% url 'player_detail' pk=player.pk %}">{{ player.name }}</li>
 {% endfor %}
 </ul>
 

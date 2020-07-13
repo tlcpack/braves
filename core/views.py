@@ -30,10 +30,13 @@ class PlayerView(generic.ListView):
     model = Player
     template_name = "core/players.html"
 
-class PlayerDetailView(generic.DetailView):
-    model = Player
-    template_name = "core/player_detail.html"
+# class PlayerDetailView(generic.DetailView):
+#     model = Player
+#     template_name = "core/player_detail.html"
 
+def player_detail(request, pk):
+    player = get_object_or_404(Player, pk=pk)
+    return render(request, 'core/player_detail.html', context={'player': player})
 
 def vote(request, q_id):
     question = get_object_or_404(Question, pk=q_id)
@@ -53,4 +56,4 @@ def vote(request, q_id):
 #     template_name = 'stats.html'
 
 def stats(request):
-    return render(request, 'stats.html', context=context)
+    return render(request, 'stats.html')
