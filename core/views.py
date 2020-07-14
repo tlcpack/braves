@@ -17,9 +17,9 @@ class IndexView(generic.ListView):
     def get_queryset(self):
         return Question.objects.order_by('-pub_date')[:5]
 
-def player(request, pk):
-    player = get_object_or_404(Player, pk=pk)
-    return render(request, 'core/player.html', context={'player': player})
+# def player(request, pk):
+#     player = get_object_or_404(Player, pk=pk)
+#     return render(request, 'core/player.html', context={'player': player})
 
 class DetailView(generic.DetailView):
     model = Question
@@ -34,9 +34,9 @@ class PlayerView(generic.ListView):
     model = Player
     template_name = "core/players.html"
 
-# class PlayerDetailView(generic.DetailView):
-#     model = Player
-#     template_name = "core/player_detail.html"
+class PlayerDetailView(generic.DetailView):
+    model = Player
+    template_name = "core/player.html"
 
 def vote(request, q_id):
     question = get_object_or_404(Question, pk=q_id)
