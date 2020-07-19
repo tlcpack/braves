@@ -12,7 +12,7 @@ def add_pitchers(apps, schema_editor):
         braves = Roster('ATL', season)
         pitchers = [player for player in braves.players if player.position == 'P']
         for pitcher in pitchers:
-            summary_list.append(pitcher.name, season, pitcher.position, pitcher(season).games, pitcher(season).era, pitcher(season).wins, pitcher(season).whip))
+            summary_list.append((pitcher.name, season, pitcher.position, pitcher(season).games, pitcher(season).era, pitcher(season).wins, pitcher(season).whip))
         
         summary = tuple(summary_list)
 
