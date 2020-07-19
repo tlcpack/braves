@@ -44,5 +44,5 @@ class Year(models.Model):
     players = models.ManyToManyField(Player)
 
     def __str__(self):
-        return self.year
+        return self.season
     

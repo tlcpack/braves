@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<ul>
+{% for year in year_list %}
+<li>
+{{ year.season }}</li>
+{% endfor %}
+</ul>
+
+{% endblock content %}
