@@ -25,8 +25,12 @@ class Choice(models.Model):
     
 class Player(models.Model):
     name = models.CharField(max_length=300)
+    season = models.CharField(blank=True, max_length=5)
     position = models.CharField(blank=True, max_length=5)
     games = models.CharField(blank=True, max_length=5)
+    era = models.CharField(blank=True, max_length=10)
+    wins = models.CharField(blank=True, max_length=5)
+    whip = models.CharField(blank=True, max_length=10)
 
     def __str__(self):
         return self.name
