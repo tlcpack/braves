@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<p>This is where some stats would go</p>
+{% for year in greg %}
+{{ year.season }}
+{% endfor %}
 {% endblock content %}

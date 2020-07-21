@@ -4,5 +4,8 @@
 <h2>{{ player.name }}</h2>
 <p>{{ player.position }}</p>
 <p>{{ player.games }}</p>
+{% for year in player.season %}
+<li>{{ year }}</li>
+{% endfor %}
 
 {% endblock %}

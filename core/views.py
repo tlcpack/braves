@@ -33,7 +33,7 @@ class ResultsView(generic.DetailView):
 class PlayerView(generic.ListView):
     model = Player
     template_name = "core/players.html"
-    paginate_by = 10
+    paginate_by = 100
 
 class PlayerDetailView(generic.DetailView):
     model = Player
@@ -65,4 +65,6 @@ def vote(request, q_id):
 #     template_name = 'stats.html'
 
 def stats(request):
-    return render(request, 'stats.html')
+    greg = Player.objects.filter(name__contains='Maddux')
+    context = { 'greg': greg }
+    return render(request, 'stats.html', context=context)
