@@ -39,10 +39,10 @@ class Player(models.Model):
         return reverse('player_detail', args=[str(self.id)])
     
 
-class Year(models.Model):
-    season = models.CharField(max_length=6)
-    players = models.ManyToManyField(Player)
+# class Year(models.Model):
+#     season = models.CharField(max_length=6)
+#     players = models.ManyToManyField(Player)
 
-    def __str__(self):
-        return self.season
+#     def __str__(self):
+#         return self.season
     

@@ -7,7 +7,7 @@ from sportsreference.mlb.roster import Roster, Player
 from sportsreference.mlb.boxscore import Boxscore
 from sportsreference.mlb.schedule import Schedule
 
-from .models import Question, Player, Year
+from .models import Question, Player
 
 # Create your views here.
 class IndexView(generic.ListView):
@@ -39,13 +39,13 @@ class PlayerDetailView(generic.DetailView):
     model = Player
     template_name = "core/player.html"
 
-class YearView(generic.ListView):
-    model = Year
-    template_name = "core/years.html"
+# class YearView(generic.ListView):
+#     model = Year
+#     template_name = "core/years.html"
 
-class YearDetailView(generic.DetailView):
-    model = Year
-    template_name = "core/year.html"
+# class YearDetailView(generic.DetailView):
+#     model = Year
+#     template_name = "core/year.html"
 
 def vote(request, q_id):
     question = get_object_or_404(Question, pk=q_id)
