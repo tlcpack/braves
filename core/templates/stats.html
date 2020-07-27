@@ -2,7 +2,7 @@
 {% block content %}
 
 {% for year in ws %}
-<p>{{ year.name }} - ERA: {{ year.era }}</p>
+<p>{{ year.name }} - {{ year.season }} - ERA: {{ year.era }}</p>
 {% endfor %}
 
 {% endblock content %}

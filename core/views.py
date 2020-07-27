@@ -65,9 +65,11 @@ def vote(request, q_id):
 #     template_name = 'stats.html'
 
 def stats(request):
-    gregs = Player.objects.filter(name__contains='Maddux')
+    gregs = Player.objects.filter(name__contains='Maddux').distinct()
     years = { greg.season for greg in gregs }
+    new_gregs = gregs.filter(season__contains='1995')
+    count = new_gregs.count()
     ws = Player.objects.filter(season__contains='1995').distinct()
     
-    context = { 'gregs': gregs, 'years': years, 'ws': ws }
+    context = { 'new_gregs': new_gregs, 'years': years, 'count': count, 'ws': ws }
     return render(request, 'stats.html', context=context)
